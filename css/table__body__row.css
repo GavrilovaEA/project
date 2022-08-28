@@ -1,0 +1,26 @@
+@import "table__body__row__cell.css";
+
+/* Светлая тема */
+.table__body__row {
+    --table__body__row_selected-bg-color: #EBF0F5;
+    --table__body__row-border-color: #EBF0F5;
+}
+
+
+.table__body__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    padding-left: 0.5rem;
+    height: 2.5rem;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    border-bottom: 0.0625rem solid var(--table__body__row-border-color);
+}
+
+.table__body__row_selected {
+    background-color: var(--table__body__row_selected-bg-color);
+}

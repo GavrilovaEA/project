@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FilterBar</title>
+    <link rel="stylesheet" href="../css/pv-lib.css">
+    <link rel="stylesheet" href="../css/filter-bar.css">
+    <style>
+        :root[theme="dark"] body {
+            background-color: #2B2D33;
+        }
+    </style>
+</head>
+<body>
+<div class="filter-bar" id="filter">
+    <div class="filter-bar__str">
+        <div class="filter-bar__str__group-item">
+            <div class="pv-input pv-input_empty filter-bar__str__group-item__input-find">
+                <!--            <label class="pv-input__label">Дата и время заказа-->
+                <div class="pv-input__field">
+                    <svg class="pv-input__icoLeft" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.0355 10.0355C11.9882 8.08291 11.9882 4.91709 10.0355 2.96447C8.08291 1.01184 4.91709 1.01184 2.96447 2.96447C1.01184 4.91709 1.01184 8.08291 2.96447 10.0355C4.91709 11.9882 8.08291 11.9882 10.0355 10.0355ZM10.0355 10.0355L14 14M14 14L14.5 13.5L11.5 10.5M14 14L13.5 14.5L10.5 11.5"
+                              fill="none"/>
+                    </svg>
+                    <input class="pv-input__input" type="text" value="" placeholder="Номер заказа или ФИО">
+                </div>
+                <!--                </label>-->
+            </div>
+
+            <button class="pv-button pv-button_ico-text pv-button_reverse filter-bar__str__group-item__button-show" id="filter__btShowForm">
+                <svg class="pv-button__ico" viewBox="0 0 16 16" fill="#8055FF" stroke="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4H4V5.5L7 8.5V12L9 13V8.5L12 5.5V4Z" stroke="none"/>
+                </svg>
+                <span class="pv-button__text">Фильтры</span>
+            </button>
+
+            <button class="pv-button pv-button_text pv-button_reverse filter-bar__str__group-item__button-reset">
+                <span class="pv-button__text">Сбросить фильтры</span>
+            </button>
+        </div>
+
+        <button class="pv-button pv-button_ico-text pv-button_reverse filter-bar__str__button-load">
+            <svg class="pv-button__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="fill: none">
+                <path d="M2.50248 7.5V8.5C2.50248 10.75 4.75248 13.5 8.00248 13.5C9.99997 13.5 11.6186 12.5 12.6 11"
+                      stroke="#459DF5"/>
+                <path d="M13.5 8.5V7.5C13.5 5.25 11.25 2.5 8 2.5C6.00003 2.5 4.38138 3.5 3.40003 5" stroke="#459DF5"/>
+                <path d="M4.5 9.5L2.50254 7.5L0.752533 9.75" stroke="#459DF5"/>
+                <path d="M11.5 6.5L13.5 8.5L15.25 6.25" stroke="#459DF5"/>
+            </svg>
+            <span class="pv-button__text">Загрузка</span>
+        </button>
+    </div>
+    <div class="filter-bar__form">
+        <div class="filter-bar__form__period">
+            <div class="pv-input filter-bar__form__period__start">
+                <label class="pv-input__label">Дата оформления
+                    <div class="pv-input__field">
+                        <span class="pv-input__mask">с</span>
+                        <input class="pv-input__input" type="text" value="20.01.2021" placeholder="Введите ...">
+                        <button class="pv-input__button">
+                            <svg class="pv-input__icoRight pv-input__icoRight-locked" viewBox="0 0 16 16"
+                                 xmlns="http://www.w3.org/2000/svg" style="stroke: none;">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5V7C13.1046 7 14 7.89543 14 9V13C14 14.1046 13.1046 15 12 15H4C2.89543 15 2 14.1046 2 13V9C2 7.89543 2.89543 7 4 7V5ZM10 5V7H6V5C6 3.89543 6.89543 3 8 3C9.10457 3 10 3.89543 10 5Z"
+                                      style="stroke: none"/>
+                                <path d="M12 5C12 2.8 10.2 1 8 1C5.8 1 4 2.8 4 5L4 9H6V5C6 3.75 7 3 8 3C9 3 10 3.75 10 5V9H12V5Z"
+                                      style="stroke: none"/>
+                            </svg>
+                            <svg class="pv-input__icoRight pv-input__icoRight-x" viewBox="0 0 16 16" fill="none"
+                                 stroke="#8055FF" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5" fill="none"/>
+                            </svg>
+                        </button>
+                    </div>
+                </label>
+            </div>
+            <div class="pv-input pv-input_empty filter-bar__form__period__end">
+                <label class="pv-input__label">&nbsp;
+                    <div class="pv-input__field">
+                        <span class="pv-input__mask">по</span>
+                        <input class="pv-input__input" type="text" value="" placeholder="Введите ...">
+                        <button class="pv-input__button">
+                            <svg class="pv-input__icoRight pv-input__icoRight-locked" viewBox="0 0 16 16"
+                                 xmlns="http://www.w3.org/2000/svg" style="stroke: none;">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5V7C13.1046 7 14 7.89543 14 9V13C14 14.1046 13.1046 15 12 15H4C2.89543 15 2 14.1046 2 13V9C2 7.89543 2.89543 7 4 7V5ZM10 5V7H6V5C6 3.89543 6.89543 3 8 3C9.10457 3 10 3.89543 10 5Z"
+                                      style="stroke: none"/>
+                                <path d="M12 5C12 2.8 10.2 1 8 1C5.8 1 4 2.8 4 5L4 9H6V5C6 3.75 7 3 8 3C9 3 10 3.75 10 5V9H12V5Z"
+                                      style="stroke: none"/>
+                            </svg>
+                            <svg class="pv-input__icoRight pv-input__icoRight-x" viewBox="0 0 16 16" fill="none"
+                                 stroke="#8055FF" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5" fill="none"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                </label>
+            </div>
+        </div>
+        <div class="pv-input pv-input_combo-box filter-bar__form__status">
+            <label class="pv-input__label">Статус заказа
+                <div class="pv-input__field">
+                    <!--                <svg class="pv-input__icoLeft" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">-->
+                    <!--                    <path d="M10.0355 10.0355C11.9882 8.08291 11.9882 4.91709 10.0355 2.96447C8.08291 1.01184 4.91709 1.01184 2.96447 2.96447C1.01184 4.91709 1.01184 8.08291 2.96447 10.0355C4.91709 11.9882 8.08291 11.9882 10.0355 10.0355ZM10.0355 10.0355L14 14M14 14L14.5 13.5L11.5 10.5M14 14L13.5 14.5L10.5 11.5"-->
+                    <!--                          fill="none"/>-->
+                    <!--                </svg>-->
+                    <!--                <span class="pv-input__mask">старше</span>-->
+                    <input class="pv-input__input" type="text" value="Любой" placeholder="Введите ..." readonly>
+                    <button class="pv-input__button">
+                        <svg class="pv-input__icoRight pv-input__icoRight-locked" viewBox="0 0 16 16"
+                             xmlns="http://www.w3.org/2000/svg" style="stroke: none;">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5V7C13.1046 7 14 7.89543 14 9V13C14 14.1046 13.1046 15 12 15H4C2.89543 15 2 14.1046 2 13V9C2 7.89543 2.89543 7 4 7V5ZM10 5V7H6V5C6 3.89543 6.89543 3 8 3C9.10457 3 10 3.89543 10 5Z"
+                                  style="stroke: none"/>
+                            <path d="M12 5C12 2.8 10.2 1 8 1C5.8 1 4 2.8 4 5L4 9H6V5C6 3.75 7 3 8 3C9 3 10 3.75 10 5V9H12V5Z"
+                                  style="stroke: none"/>
+                        </svg>
+                        <svg class="pv-input__icoRight pv-input__icoRight-x" viewBox="0 0 16 16"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path class="pv-input__icoRight__path" d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5"/>
+                        </svg>
+                        <svg class="pv-input__icoRight pv-input__icoRight-down" viewBox="0 0 6 5"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0H6V0.5L3.25 5H2.75L0 0.5V0Z"/>
+                        </svg>
+
+                    </button>
+                </div>
+            </label>
+        </div>
+        <div class="filter-bar__form__summa">
+            <div class="pv-input filter-bar__form__summa__start">
+                <label class="pv-input__label">Сумма заказа
+                    <div class="pv-input__field">
+                        <span class="pv-input__mask">от</span>
+                        <input class="pv-input__input" type="text" value="12.10.2020" placeholder="Введите ...">
+                        <button class="pv-input__button">
+                            <svg class="pv-input__icoRight pv-input__icoRight-locked" viewBox="0 0 16 16"
+                                 xmlns="http://www.w3.org/2000/svg" style="stroke: none;">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5V7C13.1046 7 14 7.89543 14 9V13C14 14.1046 13.1046 15 12 15H4C2.89543 15 2 14.1046 2 13V9C2 7.89543 2.89543 7 4 7V5ZM10 5V7H6V5C6 3.89543 6.89543 3 8 3C9.10457 3 10 3.89543 10 5Z"
+                                      style="stroke: none"/>
+                                <path d="M12 5C12 2.8 10.2 1 8 1C5.8 1 4 2.8 4 5L4 9H6V5C6 3.75 7 3 8 3C9 3 10 3.75 10 5V9H12V5Z"
+                                      style="stroke: none"/>
+                            </svg>
+                            <svg class="pv-input__icoRight pv-input__icoRight-x" viewBox="0 0 16 16" fill="none"
+                                 stroke="#8055FF" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5" fill="none"/>
+                            </svg>
+                        </button>
+                    </div>
+                </label>
+            </div>
+            <div class="pv-input pv-input_empty filter-bar__form__summa__end">
+                <label class="pv-input__label">&nbsp;
+                    <div class="pv-input__field">
+                        <span class="pv-input__mask">до</span>
+                        <input class="pv-input__input" type="text" value="" placeholder="Введите ...">
+                        <button class="pv-input__button">
+                            <svg class="pv-input__icoRight pv-input__icoRight-locked" viewBox="0 0 16 16"
+                                 xmlns="http://www.w3.org/2000/svg" style="stroke: none;">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5V7C13.1046 7 14 7.89543 14 9V13C14 14.1046 13.1046 15 12 15H4C2.89543 15 2 14.1046 2 13V9C2 7.89543 2.89543 7 4 7V5ZM10 5V7H6V5C6 3.89543 6.89543 3 8 3C9.10457 3 10 3.89543 10 5Z"
+                                      style="stroke: none"/>
+                                <path d="M12 5C12 2.8 10.2 1 8 1C5.8 1 4 2.8 4 5L4 9H6V5C6 3.75 7 3 8 3C9 3 10 3.75 10 5V9H12V5Z"
+                                      style="stroke: none"/>
+                            </svg>
+                            <svg class="pv-input__icoRight pv-input__icoRight-x" viewBox="0 0 16 16" fill="none"
+                                 stroke="#8055FF" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5" fill="none"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                </label>
+            </div>
+
+        </div>
+        <button class="pv-button pv-button_text pv-button_reverse filter-bar__form__apply">
+            <span class="pv-button__text">Применить</span>
+        </button>
+    </div>
+</div>
+<script type="text/javascript" src="../js/filter-bar.js"></script>
+</body>
+</html>

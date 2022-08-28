@@ -1,0 +1,75 @@
+/* Светлая тема */
+.pv-check {
+    --pv-check__ico-bg-color: #FFFFFF;
+    --pv-check__ico-color: #FFFFFF;
+    --pv-check__text-color: #000000;
+    --pv-check-border-color: #BAD8F5;
+    --pv-check-hover-bg-color: #BAD8F5;
+    --pv-check-hover__text-color: #459DF5;
+
+    --pv-check-checked__ico-bg-color: #459DF5;
+    --pv-check-checked__ico-color: #FFFFFF;
+    --pv-check-checked__text-color: #459DF5;
+    --pv-check-checked-border-color: #459DF5;
+    --pv-check-checked-hover__text-color: #000000;
+}
+
+.pv-check {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pv-check_hover:hover {
+    background-color: var(--pv-check-hover-bg-color);
+}
+
+.pv-check_hover:hover .pv-check__text {
+    color: var(--pv-check-hover__text-color)!important;
+}
+
+.pv-check_hover:hover .pv-check__input:checked ~ .pv-check__text {
+    color: var(--pv-check-checked-hover__text-color)!important;
+}
+
+.pv-check__input {
+    appearance: none;
+    display: none;
+}
+
+.pv-check__input:checked ~ .pv-check__text {
+    color: var(--pv-check-checked__text-color);
+}
+
+.pv-check__input:not(:checked) ~ .pv-check__text {
+    color: var(--pv-check__text-color);
+}
+
+.pv-check__ico {
+    box-sizing: border-box;
+    width: 0.875rem;
+    height: 0.875rem;
+    fill: var(--pv-check__ico-bg-color);
+    stroke: none;
+    border: 0.0625rem solid var(--pv-check-border-color);
+}
+
+.pv-check__input[type="radio"] ~ .pv-check__ico {
+    border-radius: 1rem;
+}
+
+.pv-check__input[type="checkbox"] ~ .pv-check__ico {
+    border-radius: 0.125rem;
+}
+
+.pv-check__input:not(:checked) ~ .pv-check__ico {
+    background: var(--pv-check__ico-bg-color);
+}
+
+.pv-check__input:checked ~ .pv-check__ico {
+    border-color: var(--pv-check-checked-border-color);
+    background: var(--pv-check-checked__ico-bg-color);
+    fill: var(--pv-check-checked__ico-color);
+}
