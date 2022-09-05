@@ -23,9 +23,9 @@
 
 .table__head__cell__text {
     height: 1rem;
-    font-family: 'Ubuntu';
-    font-style: normal;
-    font-weight: 400;
+    /*font-family: 'Ubuntu';*/
+    /*font-style: normal;*/
+    /*font-weight: 400;*/
     font-size: 0.8125rem;
     line-height: 1rem;
     color: var(--table__head__cell__text-color);

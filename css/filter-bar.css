@@ -34,17 +34,17 @@
     width: 20rem;
 }
 
-.filter-bar__str__group-item__input-find .pv-input__field {
+.filter-bar__str__group-item__input-find .input__field {
     margin-top: 0;
 }
 
 .filter-bar__str__group-item__button-show {
-    --pv-button__ico-opacity: 1;
-    --pv-button_reverse__ico-opacity: 1;
+    --button__ico-opacity: 1;
+    --button_reverse__ico-opacity: 1;
 }
 
 .filter-bar__str__button-load {
-    --pv-button_reverse__ico-opacity: 1;
+    --button_reverse__ico-opacity: 1;
 }
 
 .filter-bar__form {

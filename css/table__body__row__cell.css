@@ -17,9 +17,9 @@
 
 .table__body__row__cell {
     height: 1rem;
-    font-family: 'Ubuntu';
-    font-style: normal;
-    font-weight: 400;
+    /*font-family: 'Ubuntu';*/
+    /*font-style: normal;*/
+    /*font-weight: 400;*/
     font-size: 0.8125rem;
     line-height: 1rem;
     color: var(--table__body__row__cell__text-color);

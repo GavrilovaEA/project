@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Header</title>
-    <link rel="stylesheet" href="../css/pv-lib.css">
+    <link rel="stylesheet" href="../css/lib.css">
     <link rel="stylesheet" href="../css/page-header.css">
     <style>
         :root[theme="dark"] body {
@@ -14,8 +14,8 @@
 <body>
 <div class="page-header" id="pageHeader">
     <div class="page-header__title">Список заказов</div>
-    <button class="pv-button pv-button_ico-text pv-button_reverse page-header__button" id="pageHeader__btTheme">
-            <svg class="pv-button__ico page-header__button__ico-light" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <button class="button button_ico-text button_reverse page-header__button" id="pageHeader__btTheme">
+            <svg class="button__ico page-header__button__ico-light" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="8" cy="8" r="4" stroke="none"/>
                 <path d="M15 9L16 8L15 7H13V9H15Z" stroke="none"/>
                 <path d="M1 9L0 8L1 7H3V9H1Z" stroke="none"/>
@@ -26,19 +26,19 @@
                 <path d="M3.5 14H2L2 12.5L3.5 11L5 12.5L3.5 14Z" stroke="none"/>
                 <path d="M14 3.5V2L12.5 2L11 3.5L12.5 5L14 3.5Z" stroke="none"/>
             </svg>
-        <span class="pv-button__text  page-header__button__text-light">Светлая</span>
-        <svg class="pv-button__ico page-header__button__ico-dark" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <span class="button__text  page-header__button__text-light">Светлая</span>
+        <svg class="button__ico page-header__button__ico-dark" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 15C12.0269 15 15.5 11.5021 15 7.5C14.7688 10.0468 12.6071 12 10 12C7.23858 12 5 9.76142 5 7C5 4.23858 7.23858 2 10 2C11 2 12 2.5 12 2.5C11 1.5 10 1 8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15Z" stroke="none"/>
         </svg>
-        <span class="pv-button__text page-header__button__text-dark">Темная</span>
+        <span class="button__text page-header__button__text-dark">Темная</span>
     </button>
 </div>
 
-<div class="pv-dropdown" id="fTheme">
-    <div class="pv-dropdown__caption">Выберите тему</div>
+<div class="dropdown" id="fTheme">
+    <div class="dropdown__caption">Выберите тему</div>
 
-    <button class="pv-button pv-button_ico-text pv-button_small pv-button_reverse pv-button_border pv-button_width-all" id="fTheme__btLight">
-        <svg class="pv-button__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <button class="button button_ico-text button_small button_reverse button_width-all" id="fTheme__btLight">
+        <svg class="button__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <circle cx="8" cy="8" r="4" stroke="none"/>
             <path d="M15 9L16 8L15 7H13V9H15Z" stroke="none"/>
             <path d="M1 9L0 8L1 7H3V9H1Z" stroke="none"/>
@@ -49,13 +49,13 @@
             <path d="M3.5 14H2L2 12.5L3.5 11L5 12.5L3.5 14Z" stroke="none"/>
             <path d="M14 3.5V2L12.5 2L11 3.5L12.5 5L14 3.5Z" stroke="none"/>
         </svg>
-        <span class="pv-button__text">Светлая</span>
+        <span class="button__text">Светлая</span>
     </button>
-    <button class="pv-button pv-button_ico-text pv-button_small pv-button_border pv-button_width-all" id="fTheme__btDark">
-        <svg class="pv-button__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <button class="button button_ico-text button_small button_width-all" id="fTheme__btDark">
+        <svg class="button__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 15C12.0269 15 15.5 11.5021 15 7.5C14.7688 10.0468 12.6071 12 10 12C7.23858 12 5 9.76142 5 7C5 4.23858 7.23858 2 10 2C11 2 12 2.5 12 2.5C11 1.5 10 1 8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15Z" stroke="none"/>
         </svg>
-        <span class="pv-button__text">Темная</span>
+        <span class="button__text">Темная</span>
     </button>
 </div>
 <script type="text/javascript" src="../js/page-header.js"></script>

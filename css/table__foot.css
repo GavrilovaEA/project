@@ -5,21 +5,21 @@
 }
 
 .table__foot__action__rec-del {
-    --pv-button-bg-color: #F53152;
-    --pv-button__ico-opacity: 1;
-    --pv-button__ico-color: #FFFFFF;
-    --pv-button__text-color: #FFFFFF;
-    --pv-button-hover-bg-color: #c92f4d;
+    --button-bg-color: #F53152;
+    --button__ico-opacity: 1;
+    --button__ico-color: #FFFFFF;
+    --button__text-color: #FFFFFF;
+    --button-hover-bg-color: #c92f4d;
 
 }
 
 
 :root[theme="dark"] .table__foot__action__rec-del {
-    --pv-button-bg-color: #F53152;
-    --pv-button__ico-opacity: 1;
-    --pv-button__ico-color: #FFFFFF;
-    --pv-button__text-color: #FFFFFF;
-    --pv-button-hover-bg-color: #c92f4d;
+    --button-bg-color: #F53152;
+    --button__ico-opacity: 1;
+    --button__ico-color: #FFFFFF;
+    --button__text-color: #FFFFFF;
+    --button-hover-bg-color: #c92f4d;
 }
 
 
@@ -51,7 +51,7 @@
 }
 
 
-.table__foot__action__rec-del .pv-button__ico {
+.table__foot__action__rec-del .button__ico {
     fill: none;
-    stroke: var(--pv-button__ico-color);
+    stroke: var(--button__ico-color);
 }

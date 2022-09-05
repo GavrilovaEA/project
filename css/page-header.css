@@ -13,7 +13,7 @@
 
 .page-header__title {
     font-family: 'Ubuntu';
-    font-style: normal;
+    /*font-style: normal;*/
     font-weight: 700;
     font-size: 1.625rem;
     line-height: 2rem;
@@ -23,7 +23,7 @@
 
 .page-header__button-light,
 .page-header__button-dark {
-    --pv-button_reverse__ico-opacity: 1;
+    --button_reverse__ico-opacity: 1;
 }
 
 .page-header__button__text-light,
