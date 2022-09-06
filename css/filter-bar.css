@@ -55,7 +55,7 @@
     flex-direction: row;
     justify-content: flex-start;
     gap: 1rem;
-    display: none;
+    /*display: none;*/
 }
 
 .filter-bar_show-form .filter-bar__form {

@@ -43,7 +43,7 @@
 }
 
 .label-status__text {
-    font-family: 'Ubuntu';
+    /*font-family: 'Ubuntu';*/
     /*font-style: normal;*/
     font-size: 0.8125rem;
     line-height: 1rem;
