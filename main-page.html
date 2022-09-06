@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/lib.css">
+    <link rel="stylesheet" href="css/page-header.css">
+    <link rel="stylesheet" href="css/filter-bar.css">
+    <link rel="stylesheet" href="css/table.css">
+    <title>Main</title>
+    <style>
+        :root {
+            --bg-color: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 2rem 3rem 0;
+            gap: 2rem;
+            min-width: 55rem;
+            max-width: 95rem;
+        }
+        .page-header {
+            flex: none;
+            order: 0;
+            align-self: stretch;
+            flex-grow: 0;
+        }
+
+        .filter-bar {
+            flex: none;
+            order: 1;
+            align-self: stretch;
+            flex-grow: 0;
+        }
+
+        .table {
+            flex: none;
+            order: 2;
+            align-self: stretch;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="container">
+
+        <!--Начало Блок page-header-->
+        <div class="page-header" id="pageHeader">
+            <div class="page-header__title">Список заказов</div>
+        </div>
+
+       
+        <!--Начало Блок filter-bar-->
+        <div class="filter-bar filter-bar_show-form" id="filter">
+            <div class="filter-bar__str">
+                <div class="filter-bar__str__group-item">
+                    <div class="input input_empty filter-bar__str__group-item__input-find">
+                        <!--            <label class="input__label">Дата и время заказа-->
+                        <div class="input__field">
+                            <svg class="input__icoLeft" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.0355 10.0355C11.9882 8.08291 11.9882 4.91709 10.0355 2.96447C8.08291 1.01184 4.91709 1.01184 2.96447 2.96447C1.01184 4.91709 1.01184 8.08291 2.96447 10.0355C4.91709 11.9882 8.08291 11.9882 10.0355 10.0355ZM10.0355 10.0355L14 14M14 14L14.5 13.5L11.5 10.5M14 14L13.5 14.5L10.5 11.5"
+                                      fill="none"/>
+                            </svg>
+                            <input class="input__input" type="text" value="" placeholder="Номер заказа или ФИО">
+                        </div>
+                        <!--                </label>-->
+                    </div>
+
+                    <button class="button button_reverse filter-bar__str__group-item__button-show"
+                            id="filter__btShowForm">
+                        <svg class="button__ico" viewBox="0 0 16 16" fill="#8055FF" stroke="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 4H4V5.5L7 8.5V12L9 13V8.5L12 5.5V4Z" stroke="none"/>
+                        </svg>
+                        <span class="button__text">Фильтры</span>
+                    </button>
+
+                    <button class="button button_reverse filter-bar__str__group-item__button-reset">
+                        <span class="button__text">Сбросить фильтры</span>
+                    </button>
+                </div>
+
+                <button class="button button_reverse filter-bar__str__button-load">
+                    <svg class="button__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                         style="fill: none">
+                        <path d="M2.50248 7.5V8.5C2.50248 10.75 4.75248 13.5 8.00248 13.5C9.99997 13.5 11.6186 12.5 12.6 11"
+                              stroke="#459DF5"/>
+                        <path d="M13.5 8.5V7.5C13.5 5.25 11.25 2.5 8 2.5C6.00003 2.5 4.38138 3.5 3.40003 5"
+                              stroke="#459DF5"/>
+                        <path d="M4.5 9.5L2.50254 7.5L0.752533 9.75" stroke="#459DF5"/>
+                        <path d="M11.5 6.5L13.5 8.5L15.25 6.25" stroke="#459DF5"/>
+                    </svg>
+                    <span class="button__text">Загрузка</span>
+                </button>
+            </div>
+            <div class="filter-bar__form">
+                <div class="filter-bar__form__period">
+                    <div class="input filter-bar__form__period__start">
+                        <label class="input__label">Дата оформления
+                            <div class="input__field">
+                                <span class="input__mask">с</span>
+                                <input class="input__input" type="text" value="20.01.2021" placeholder="Введите ...">
+                                <button class="input__button">
+                                    <svg class="input__icoRight input__icoRight-locked" viewBox="0 0 16 16"
+                                         xmlns="http://www.w3.org/2000/svg" style="stroke: none;">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5V7C13.1046 7 14 7.89543 14 9V13C14 14.1046 13.1046 15 12 15H4C2.89543 15 2 14.1046 2 13V9C2 7.89543 2.89543 7 4 7V5ZM10 5V7H6V5C6 3.89543 6.89543 3 8 3C9.10457 3 10 3.89543 10 5Z"
+                                              style="stroke: none"/>
+                                        <path d="M12 5C12 2.8 10.2 1 8 1C5.8 1 4 2.8 4 5L4 9H6V5C6 3.75 7 3 8 3C9 3 10 3.75 10 5V9H12V5Z"
+                                              style="stroke: none"/>
+                                    </svg>
+                                    <svg class="input__icoRight input__icoRight-x" viewBox="0 0 16 16" fill="none"
+                                         stroke="#8055FF" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5" fill="none"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="input input_empty filter-bar__form__period__end">
+                        <label class="input__label">&nbsp;
+                            <div class="input__field">
+                                <span class="input__mask">по</span>
+                                <input class="input__input" type="text" value="" placeholder="Введите ...">
+                                <button class="input__button">
+                                    <svg class="input__icoRight input__icoRight-locked" viewBox="0 0 16 16"
+                                         xmlns="http://www.w3.org/2000/svg" style="stroke: none;">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5V7C13.1046 7 14 7.89543 14 9V13C14 14.1046 13.1046 15 12 15H4C2.89543 15 2 14.1046 2 13V9C2 7.89543 2.89543 7 4 7V5ZM10 5V7H6V5C6 3.89543 6.89543 3 8 3C9.10457 3 10 3.89543 10 5Z"
+                                              style="stroke: none"/>
+                                        <path d="M12 5C12 2.8 10.2 1 8 1C5.8 1 4 2.8 4 5L4 9H6V5C6 3.75 7 3 8 3C9 3 10 3.75 10 5V9H12V5Z"
+                                              style="stroke: none"/>
+                                    </svg>
+                                    <svg class="input__icoRight input__icoRight-x" viewBox="0 0 16 16" fill="none"
+                                         stroke="#8055FF" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5" fill="none"/>
+                                    </svg>
+                                </button>
+                            </div>
+
+                        </label>
+                    </div>
+                </div>
+                <div class="input input_combo-box filter-bar__form__status">
+                    <label class="input__label">Статус заказа
+                        <div class="input__field">
+                            <!--                <svg class="input__icoLeft" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">-->
+                            <!--                    <path d="M10.0355 10.0355C11.9882 8.08291 11.9882 4.91709 10.0355 2.96447C8.08291 1.01184 4.91709 1.01184 2.96447 2.96447C1.01184 4.91709 1.01184 8.08291 2.96447 10.0355C4.91709 11.9882 8.08291 11.9882 10.0355 10.0355ZM10.0355 10.0355L14 14M14 14L14.5 13.5L11.5 10.5M14 14L13.5 14.5L10.5 11.5"-->
+                            <!--                          fill="none"/>-->
+                            <!--                </svg>-->
+                            <!--                <span class="input__mask">старше</span>-->
+                            <input class="input__input" type="text" value="Любой" placeholder="Введите ..." readonly>
+                            <button class="input__button">
+                                <svg class="input__icoRight input__icoRight-locked" viewBox="0 0 16 16"
+                                     xmlns="http://www.w3.org/2000/svg" style="stroke: none;">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5V7C13.1046 7 14 7.89543 14 9V13C14 14.1046 13.1046 15 12 15H4C2.89543 15 2 14.1046 2 13V9C2 7.89543 2.89543 7 4 7V5ZM10 5V7H6V5C6 3.89543 6.89543 3 8 3C9.10457 3 10 3.89543 10 5Z"
+                                          style="stroke: none"/>
+                                    <path d="M12 5C12 2.8 10.2 1 8 1C5.8 1 4 2.8 4 5L4 9H6V5C6 3.75 7 3 8 3C9 3 10 3.75 10 5V9H12V5Z"
+                                          style="stroke: none"/>
+                                </svg>
+                                <svg class="input__icoRight input__icoRight-x" viewBox="0 0 16 16"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path class="input__icoRight__path" d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5"/>
+                                </svg>
+                                <svg class="input__icoRight input__icoRight-down" viewBox="0 0 6 5"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0H6V0.5L3.25 5H2.75L0 0.5V0Z"/>
+                                </svg>
+
+                            </button>
+                        </div>
+                    </label>
+                </div>
+                <div class="filter-bar__form__summa">
+                    <div class="input filter-bar__form__summa__start">
+                        <label class="input__label">Сумма заказа
+                            <div class="input__field">
+                                <span class="input__mask">от</span>
+                                <input class="input__input" type="text" value="12.10.2020" placeholder="Введите ...">
+                                <button class="input__button">
+                                    <svg class="input__icoRight input__icoRight-locked" viewBox="0 0 16 16"
+                                         xmlns="http://www.w3.org/2000/svg" style="stroke: none;">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5V7C13.1046 7 14 7.89543 14 9V13C14 14.1046 13.1046 15 12 15H4C2.89543 15 2 14.1046 2 13V9C2 7.89543 2.89543 7 4 7V5ZM10 5V7H6V5C6 3.89543 6.89543 3 8 3C9.10457 3 10 3.89543 10 5Z"
+                                              style="stroke: none"/>
+                                        <path d="M12 5C12 2.8 10.2 1 8 1C5.8 1 4 2.8 4 5L4 9H6V5C6 3.75 7 3 8 3C9 3 10 3.75 10 5V9H12V5Z"
+                                              style="stroke: none"/>
+                                    </svg>
+                                    <svg class="input__icoRight input__icoRight-x" viewBox="0 0 16 16" fill="none"
+                                         stroke="#8055FF" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5" fill="none"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="input input_empty filter-bar__form__summa__end">
+                        <label class="input__label">&nbsp;
+                            <div class="input__field">
+                                <span class="input__mask">до</span>
+                                <input class="input__input" type="text" value="" placeholder="Введите ...">
+                                <button class="input__button">
+                                    <svg class="input__icoRight input__icoRight-locked" viewBox="0 0 16 16"
+                                         xmlns="http://www.w3.org/2000/svg" style="stroke: none;">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5V7C13.1046 7 14 7.89543 14 9V13C14 14.1046 13.1046 15 12 15H4C2.89543 15 2 14.1046 2 13V9C2 7.89543 2.89543 7 4 7V5ZM10 5V7H6V5C6 3.89543 6.89543 3 8 3C9.10457 3 10 3.89543 10 5Z"
+                                              style="stroke: none"/>
+                                        <path d="M12 5C12 2.8 10.2 1 8 1C5.8 1 4 2.8 4 5L4 9H6V5C6 3.75 7 3 8 3C9 3 10 3.75 10 5V9H12V5Z"
+                                              style="stroke: none"/>
+                                    </svg>
+                                    <svg class="input__icoRight input__icoRight-x" viewBox="0 0 16 16" fill="none"
+                                         stroke="#8055FF" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5" fill="none"/>
+                                    </svg>
+                                </button>
+                            </div>
+
+                        </label>
+                    </div>
+
+                </div>
+                <button class="button button_reverse filter-bar__form__apply">
+                    <span class="button__text">Применить</span>
+                </button>
+            </div>
+        </div>
+        <!--Конец Блок filter-bar-->
+
+
+        <!--Начало Блок table-->
+        <div class="table table_sticky-head table_sticky-foot">
+            <div class="table__head">
+                <div class="table__head__cell">
+                    <div class="table__head__cell__text">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <!--    <div class="table__head__cell__ico">-->
+                    <!--        <svg class="table__head__cell__ico__svg" viewBox="0 0 6 5" xmlns="http://www.w3.org/2000/svg">-->
+                    <!--            <path d="M6 5H0V4.5L2.75 0H3.25L6 4.5V5Z"/>-->
+                    <!--        </svg>-->
+                    <!--    </div>-->
+                </div>
+                <div class="table__head__cell">
+                    <div class="table__head__cell__text">#</div>
+                    <!--    <div class="table__head__cell__ico">-->
+                    <!--        <svg class="table__head__cell__ico__svg" viewBox="0 0 6 5" xmlns="http://www.w3.org/2000/svg">-->
+                    <!--            <path d="M6 5H0V4.5L2.75 0H3.25L6 4.5V5Z"/>-->
+                    <!--        </svg>-->
+                    <!--    </div>-->
+                </div>
+                <div class="table__head__cell table__head__cell_sort table__head__cell_sorting">
+                    <div class="table__head__cell__text">Дата</div>
+                    <div class="table__head__cell__ico">
+                        <svg class="table__head__cell__ico__svg" viewBox="0 0 6 5" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 5H0V4.5L2.75 0H3.25L6 4.5V5Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="table__head__cell table__head__cell_sort">
+                    <div class="table__head__cell__text">Статус</div>
+                    <div class="table__head__cell__ico">
+                        <svg class="table__head__cell__ico__svg" viewBox="0 0 6 5" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 5H0V4.5L2.75 0H3.25L6 4.5V5Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="table__head__cell table__head__cell_sort">
+                    <div class="table__head__cell__text">Позиций</div>
+                    <div class="table__head__cell__ico">
+                        <svg class="table__head__cell__ico__svg" viewBox="0 0 6 5" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 5H0V4.5L2.75 0H3.25L6 4.5V5Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="table__head__cell table__head__cell_sort">
+                    <div class="table__head__cell__text">Сумма</div>
+                    <div class="table__head__cell__ico">
+                        <svg class="table__head__cell__ico__svg" viewBox="0 0 6 5" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 5H0V4.5L2.75 0H3.25L6 4.5V5Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="table__head__cell">
+                    <div class="table__head__cell__text">ФИО покупателя</div>
+                    <div class="table__head__cell__ico">
+                        <svg class="table__head__cell__ico__svg" viewBox="0 0 6 5" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 5H0V4.5L2.75 0H3.25L6 4.5V5Z"/>
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+            <div class="table__body">
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1270989
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.2.2021, 18:0
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6
+                    </div>
+                    <div class="table__body__row__cell">
+                        101907 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Чернышев Филипп Семёнович
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1270989
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.2.2021, 18:0
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6
+                    </div>
+                    <div class="table__body__row__cell">
+                        101907 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Чернышев Филипп Семёнович
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1270989
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.2.2021, 18:0
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6
+                    </div>
+                    <div class="table__body__row__cell">
+                        101907 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Чернышев Филипп Семёнович
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1270989
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.2.2021, 18:0
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6
+                    </div>
+                    <div class="table__body__row__cell">
+                        101907 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Чернышев Филипп Семёнович
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1270989
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.2.2021, 18:0
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6
+                    </div>
+                    <div class="table__body__row__cell">
+                        101907 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Чернышев Филипп Семёнович
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1270989
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.2.2021, 18:0
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6
+                    </div>
+                    <div class="table__body__row__cell">
+                        101907 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Чернышев Филипп Семёнович
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1270989
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.2.2021, 18:0
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6
+                    </div>
+                    <div class="table__body__row__cell">
+                        101907 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Чернышев Филипп Семёнович
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1270989
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.2.2021, 18:0
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6
+                    </div>
+                    <div class="table__body__row__cell">
+                        101907 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Чернышев Филипп Семёнович
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1270989
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.2.2021, 18:0
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6
+                    </div>
+                    <div class="table__body__row__cell">
+                        101907 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Чернышев Филипп Семёнович
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1270989
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.2.2021, 18:0
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6
+                    </div>
+                    <div class="table__body__row__cell">
+                        101907 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Чернышев Филипп Семёнович
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1270989
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.2.2021, 18:0
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6
+                    </div>
+                    <div class="table__body__row__cell">
+                        101907 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Чернышев Филипп Семёнович
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1270989
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.2.2021, 18:0
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6
+                    </div>
+                    <div class="table__body__row__cell">
+                        101907 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Чернышев Филипп Семёнович
+                    </div>
+                </div>
+
+                <!--    <div class="table__body__row">-->
+                <!--        <div class="table__body__row__cell">-->
+                <!--            <label class="check">-->
+                <!--                <input class="check__input" type="checkbox">-->
+                <!--                <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">-->
+                <!--                    <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>-->
+                <!--                </svg>-->
+                <!--            </label>-->
+                <!--        </div>-->
+                <!--        <div class="table__body__row__cell">-->
+                <!--            1270989-->
+                <!--        </div>-->
+                <!--        <div class="table__body__row__cell">-->
+                <!--            15.02.2021, 18:00-->
+                <!--        </div>-->
+                <!--        <div class="table__body__row__cell">-->
+                <!--            <div class="label-status label-status_status-new">-->
+                <!--                <div class="label-status__ico"></div>-->
+                <!--                <div class="label-status__text"></div>-->
+                <!--            </div>-->
+                <!--        </div>-->
+                <!--        <div class="table__body__row__cell">-->
+                <!--            6-->
+                <!--        </div>-->
+                <!--        <div class="table__body__row__cell">-->
+                <!--            101 907 ₽-->
+                <!--        </div>-->
+                <!--        <div class="table__body__row__cell">-->
+                <!--            Чернышев Филипп Семенович-->
+                <!--        </div>-->
+                <!--    </div>-->
+
+
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1270989
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.2.2021, 18:0
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6
+                    </div>
+                    <div class="table__body__row__cell">
+                        101907 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Чернышев Филипп Семёнович
+                    </div>
+                </div>
+                <div class="table__body__row table__body__row_selected">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox" checked>
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        2353474
+                    </div>
+                    <div class="table__body__row__cell">
+                        12.3.2021, 5:15
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-new">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        2
+                    </div>
+                    <div class="table__body__row__cell">
+                        98003 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Филиппов Степан Васильевич
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1103397
+                    </div>
+                    <div class="table__body__row__cell">
+                        3.2.2021, 8:4
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-calculation">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        5
+                    </div>
+                    <div class="table__body__row__cell">
+                        3800 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Тихонова Алина Давидовна
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        6924662
+                    </div>
+                    <div class="table__body__row__cell">
+                        21.1.2021, 13:32
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-complete">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1
+                    </div>
+                    <div class="table__body__row__cell">
+                        5700 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Александрова Юлия Никитична
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        2200086
+                    </div>
+                    <div class="table__body__row__cell">
+                        19.1.2021, 10:28
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-canceled">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        -
+                    </div>
+                    <div class="table__body__row__cell">
+                        - ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Андрей
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        2842064
+                    </div>
+                    <div class="table__body__row__cell">
+                        4.1.2021, 12:12
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-postponed">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1
+                    </div>
+                    <div class="table__body__row__cell">
+                        20500 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Судакова Анастасия Ильинична
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1730071
+                    </div>
+                    <div class="table__body__row__cell">
+                        17.12.2021, 22:45
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-complete">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1
+                    </div>
+                    <div class="table__body__row__cell">
+                        1399 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Зверева Арина Николаевна
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        7987376
+                    </div>
+                    <div class="table__body__row__cell">
+                        7.12.2020, 8:57
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-complete">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        3
+                    </div>
+                    <div class="table__body__row__cell">
+                        117810 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Карташов Максим Кириллович
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1373265
+                    </div>
+                    <div class="table__body__row__cell">
+                        15.11.2020, 14:26
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-complete">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1
+                    </div>
+                    <div class="table__body__row__cell">
+                        17008 ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        Васильев Вадим Даниилович
+                    </div>
+                </div>
+                <div class="table__body__row">
+                    <div class="table__body__row__cell">
+                        <label class="check">
+                            <input class="check__input" type="checkbox">
+                            <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="table__body__row__cell">
+                        1311100
+                    </div>
+                    <div class="table__body__row__cell">
+                        7.11.2020, 18:52
+                    </div>
+                    <div class="table__body__row__cell">
+                        <div class="label-status label-status_status-canceled">
+                            <div class="label-status__ico"></div>
+                            <div class="label-status__text"></div>
+                        </div>
+                    </div>
+                    <div class="table__body__row__cell">
+                        -
+                    </div>
+                    <div class="table__body__row__cell">
+                        - ₽
+                    </div>
+                    <div class="table__body__row__cell">
+                        София
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="table__foot">
+                <div class="table__foot__action">
+                    <div class="table__foot__action__rec-count">Выбрано записей: 4</div>
+                    <button class="button button_small table__foot__action__rec-edit">
+                        <svg class="button__ico" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 14.5H15"/>
+                            <path d="M5 13L1.5 14.5L3 11M5 13L3 11M5 13L12 6M3 11L10 4M11 3L12.5 1.5L14.5 3.5L13 5M11 3L13 5M11 3L10 4M13 5L12 6M12 6L10 4"/>
+                        </svg>
+                        <span class="button__text">Изменить статус</span>
+                    </button>
+                    <button class="button button_small table__foot__action__rec-del">
+                        <svg class="button__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 3.5H3.5M14 3.5H12.5M5.5 3.5H10.5M5.5 3.5V2.5C5.5 1.94772 5.94772 1.5 6.5 1.5H9.5C10.0523 1.5 10.5 1.94772 10.5 2.5V3.5M5.5 3.5H3.5M10.5 3.5H12.5M3.5 3.5V13.5C3.5 14.0523 3.94772 14.5 4.5 14.5H11.5C12.0523 14.5 12.5 14.0523 12.5 13.5V3.5"
+                                  stroke-linecap="round"/>
+                            <path d="M6.5 6V12M9.5 6V12" stroke-linecap="round"/>
+                        </svg>
+                        <span class="button__text">Удалить</span>
+                    </button>
+
+                </div>
+                <div class="paginator table__foot__paginator">
+                    <div class="paginator__page paginator-active">1</div>
+                    <div class="paginator__page paginator-link">2</div>
+                    <div class="paginator__page paginator-link">3</div>
+                    <div class="paginator__page">...</div>
+                    <div class="paginator__page paginator-link">18</div>
+                    <div class="paginator__page paginator-goto">#</div>
+                </div>
+
+            </div>
+        </div>
+        <!--Конец Блок table-->
+    </div>
+</div>
+</body>
+</html>

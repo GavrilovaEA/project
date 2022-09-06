@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkbox</title>
+    <link rel="stylesheet" href="../css/check.css">
+        <style>
+        .check {
+            height: 3rem;
+        }
+        :root[theme="dark"] body {
+            background-color: black;
+        }
+
+        </style>
+</head>
+<body>
+
+<!--Радио кнопка с индикатором и текстом-->
+<label class="check">
+    <input class="check__input" type="radio" name="group1" id="group1_1">
+    <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="8" cy="8" r="4"/>
+    </svg>
+    <span class="check__text">Radio</span>
+</label>
+
+<!--Радио кнопка с индикатором без текста-->
+<label class="check">
+    <input class="check__input" type="radio" name="group1" id="group1_2">
+    <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="8" cy="8" r="4"/>
+    </svg>
+    <!--    <span class="check__text">Radio</span>-->
+</label>
+
+<!--Радио кнопка без индикатора с текстом-->
+<label class="check">
+    <input class="check__input" type="radio" name="group1" id="group1_3">
+    <!--    <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">-->
+    <!--        <circle cx="8" cy="8" r="4"/>-->
+    <!--    </svg>-->
+    <span class="check__text">Radio</span>
+</label>
+
+<!--Флажок с индикатором и текстом-->
+<label class="check">
+    <input class="check__input" type="checkbox">
+    <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+    </svg>
+    <span class="check__text">Checkbox</span>
+</label>
+
+<!--Флажок с индикатором без текста-->
+<label class="check">
+    <input class="check__input" type="checkbox">
+    <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+    </svg>
+    <!--    <span class="check__text">Radio</span>-->
+</label>
+
+
+<!--Флажок без индикатора с текстом-->
+<label class="check">
+    <input class="check__input" type="checkbox">
+<!--    <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">-->
+<!--        <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>-->
+<!--    </svg>-->
+    <span class="check__text">Checkbox</span>
+</label>
+
+
+<!--Флажок с индикатором и текстом, + выделение при наведении-->
+<label class="check check_hover">
+    <input class="check__input" type="checkbox">
+    <svg class="check__ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 10L4.5 6L3 7L7 14L14.5 3.5V3L13 2L7 10Z"/>
+    </svg>
+    <span class="check__text">Checkbox</span>
+</label>
+
+
+</body>
+</html>

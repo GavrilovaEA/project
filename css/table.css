@@ -1,0 +1,70 @@
+@import "table__head.css";
+@import "table__body.css";
+@import "table__foot.css";
+@import "paginator.css";
+@import "label-status.css";
+
+.table {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.table_sticky-head .table__head {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.table_sticky-foot .table__foot {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+}
+.table__body__row__cell:nth-child(1),
+.table__head__cell:nth-child(1) {
+    min-width: 3.125rem;
+    max-width: 3.125rem;
+}
+
+.table__body__row__cell:nth-child(2),
+.table__head__cell:nth-child(2) {
+    /*width: 4.6875rem;*/
+    min-width: 4.6875rem;
+    max-width: 4.6875rem;
+}
+
+.table__body__row__cell:nth-child(3),
+.table__head__cell:nth-child(3) {
+    /*width: 9.375rem;*/
+    min-width: 9.375rem;
+    max-width: 9.375rem;
+}
+
+.table__body__row__cell:nth-child(4),
+.table__head__cell:nth-child(4) {
+    /*width: 7.5rem;*/
+    min-width: 7.5rem;
+    max-width: 7.5rem;
+}
+
+.table__body__row__cell:nth-child(5),
+.table__head__cell:nth-child(5) {
+    /*width: 5.3125rem;*/
+    min-width: 5.3125rem;
+    max-width: 5.3125rem;
+}
+
+.table__body__row__cell:nth-child(6),
+.table__head__cell:nth-child(6) {
+    /*width: 7.8125rem;*/
+    min-width: 7.8125rem;
+    max-width: 7.8125rem;
+}
+
+.table__body__row__cell:nth-child(7),
+.table__head__cell:nth-child(7) {
+    /*width: 15.625rem;*/
+    min-width: 15.625rem;
+}

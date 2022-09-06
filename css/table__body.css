@@ -1,0 +1,10 @@
+@import "table__body__row.css";
+
+/* Сетлая тема */
+.table__body {
+    --table__body-bg-color: #FFFFFF;
+}
+
+.table__body {
+    background-color: var(--table__body-bg-color);
+}
